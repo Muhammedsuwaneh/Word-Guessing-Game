@@ -13,12 +13,11 @@ void Words::initializeGame(Words& W) {
 
 	bool validity;
 	int matched_Count, correctly_Placed;
-	string ipucu_kodu = "xxxxx";
+	string hint_code = "xxxxx";
 
-	cout << " -> Birbakalim oyununa hos geldiniz" << endl;
-	cout << " -> 5 harften olusan bir kelime tuttum" << endl;
+	cout << " -> Welcome to the guessing game" << endl;
 
-	cout << endl << " Sozluk acmak icin dosyanin ismi yazininiz (words.txt): ";
+	cout << endl << " To start the game enter the file name in the brackets (words.txt): ";
 	cin >> W.file;
 
     WordList L(W.file);
@@ -29,7 +28,7 @@ void Words::initializeGame(Words& W) {
 
 	do {
 
-		cout << endl << " -> Tahminiz nedir ? : ";
+		cout << endl << " -> Enter a guess ? : ";
 		cin >> W.guess;
 
 		transform(W.guess.begin(), W.guess.end(), W.guess.begin(), ::tolower);
@@ -38,14 +37,14 @@ void Words::initializeGame(Words& W) {
 
 		if (validity == false && W.guess != ipucu_kodu) {
 
-			cout << " -> Bu kelime sozlukte yok" << endl;
+			cout << " -> Word not found in dictionary" << endl;
 		}
 
 		else {
 
-			if (W.guess == ipucu_kodu) {
+			if (W.guess == hint_code) {
 
-				cout << " -> Gizli kelime: " << W.secret << endl;
+				cout << " -> Secret word: " << W.secret << endl;
 				W.cheated = true;
 
 				num_of_Guesses++;
@@ -53,23 +52,23 @@ void Words::initializeGame(Words& W) {
 
 			else if (W.guess == W.secret && W.cheated == false) {
 
-				cout << " -> Bildiniz ! " << num_of_Guesses << " dogru sonucuna ulastiniz" << endl;
+				cout << " -> Game concluded ! After" << num_of_Guesses << " guesses the guess became correct" << endl;
 				break;
 			}
 
 			else if (W.guess == W.secret && W.cheated == true) {
 
-				cout << " -> Bildiniz ! " << num_of_Guesses << " dogru sonucuna ipcucu kullanarak ulastiniz" << endl;
+				cout << " -> Game concluded ! After " << num_of_Guesses << " guesses the guess became correct by using the hint code" << endl;
 				break;
 			}
 
-			else if (W.guess != ipucu_kodu) {
+			else if (W.guess != hint_code) {
 
 				matched_Count = count_Matched_Letters(W.secret);
 				correctly_Placed = count_Correct_Placed_Letters(W.secret);
 				cout << endl << " ----------------------------- " << endl;
-				cout << endl << " -> Eslesen harf sayisi: " << matched_Count << endl;
-				cout << endl << " -> Eslesen harflerin dogru konumu: " << correctly_Placed << endl;
+				cout << endl << " -> Number of similar letters: " << matched_Count << endl;
+				cout << endl << " -> Number of well placed similar letters: " << correctly_Placed << endl;
 			}
 
 			num_of_Guesses++;
@@ -78,7 +77,7 @@ void Words::initializeGame(Words& W) {
 	} while (1);
 
 
-	/* ipucu ends here */
+	/* hint ends here */
 
 }  // end initializeGame
 
