@@ -27,12 +27,12 @@ WordList::WordList(char* file) {
 
 	if (!dictionary) {
 
-		cout << endl << " -> Hata ! -> Dosya acilmamistir" << endl;
+		cout << endl << " -> Error ! -> File did not opened" << endl;
 		exit(0);
 	}
 
-	cout << endl << " -> Dosya acilimistir....................." << endl;
-	cout << endl << " -> Dosyayi okunuyor....................." << endl;
+	cout << endl << " -> File opened ....................." << endl;
+	cout << endl << " -> Now reading from file....................." << endl;
 
 	std::string buffer;
 	bool decision;
@@ -52,6 +52,8 @@ WordList::WordList(char* file) {
 
 		dictionary >> buffer;
 	}
+	
+	cout << endl << "Reading was successfull" << endl;
 
 	temp.assign(words.begin(), words.end());
 
