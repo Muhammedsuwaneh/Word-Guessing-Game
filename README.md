@@ -1,5 +1,5 @@
 # Word-Guessing-Game
-This is word guessing game.
+This is a word guessing game.
 A five lettered word is requested from the player as a guess.
 A random "secret word" (with no repeated letters) gets returned and compared with the player's input.
 if the words are equal the player wins else the number of similar letters gets counted and printed.
