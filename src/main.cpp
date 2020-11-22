@@ -1,3 +1,10 @@
+/*
+*
+*@author - Muhammed Suwaneh
+*@ESOGU Department of Computer Engineering
+*
+*
+*/
 #include <iostream>
 #include <cstdlib>
 #include <vector>
