@@ -1,7 +1,7 @@
 # C++ Object Oriented Programming Word guessing game implementation
 
-1 This is a word guessing game
-2 A five lettered word is requested from the player as a guess
+### 1 This is a word guessing game
+### 2 A five lettered word is requested from the player as a guess
 3 A random "secret word" (with no repeated letters) gets returned and compared with the player's input
 4 If the words are equal the player wins else the number of similar letters gets counted and printed
 5 If the word is also not found in the dictionary, the player gets a message
